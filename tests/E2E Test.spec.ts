@@ -71,5 +71,5 @@ await expect(page.getByText('Thank you for Shopping With Us', { exact: true })).
 await expect(page.getByText(orderID, { exact: true })).toBeVisible();
 console.log("Order history page is displayed successfully with the order ID: " + orderID + " and product name: " + productName);
 
-// Test case passed
+// Test case passed 01
 })
