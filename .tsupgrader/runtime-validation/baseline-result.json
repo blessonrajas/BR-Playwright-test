@@ -1,0 +1,56 @@
+{
+  "planHash": "a71b41ff938424c39869f5457aabd8aa8db795f5be781b985b4f57f398b49e00",
+  "phase": "baseline",
+  "recordedAtUtc": "2026-10-31T13:31:00.3844534Z",
+  "retryCount": 0,
+  "resetBaseline": true,
+  "complete": true,
+  "result": {
+    "setupSucceeded": true,
+    "setupDurationMs": 1255,
+    "setupFailureOutput": null,
+    "assertions": [
+      {
+        "name": "playwright-smoke-test",
+        "kind": "process",
+        "verificationMethod": "exit-code",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\nRunning 1 test using 1 worker\r\n\r\n  ok 1 [chromium] \u203A tests\\seed.spec.ts:4:7 \u203A Test group \u203A seed (437ms)\r\n\r\n  1 passed (1.5s)\r\n",
+        "durationMs": 2701
+      }
+    ],
+    "executions": [
+      {
+        "source": "setup[0]",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "ci"
+        ],
+        "cwd": "D:\\PlayWright Automation",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "playwright-smoke-test",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "exec",
+          "--",
+          "playwright",
+          "test",
+          "tests/seed.spec.ts",
+          "--reporter=list"
+        ],
+        "cwd": "D:\\PlayWright Automation",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      }
+    ]
+  }
+}
