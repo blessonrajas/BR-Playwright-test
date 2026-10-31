@@ -1,0 +1,28 @@
+{
+  "generatedOnPlatform": "win32",
+  "projectType": "other",
+  "setup": [
+    {
+      "command": "npm",
+      "args": ["ci"]
+    }
+  ],
+  "assertions": [
+    {
+      "name": "playwright-smoke-test",
+      "kind": "process",
+      "command": "npm",
+      "args": [
+        "exec",
+        "--",
+        "playwright",
+        "test",
+        "tests/seed.spec.ts",
+        "--reporter=list"
+      ],
+      "verificationMethod": "exit-code",
+      "expected": "0",
+      "timeoutSeconds": 300
+    }
+  ]
+}
