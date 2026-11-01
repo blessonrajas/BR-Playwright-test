@@ -47,8 +47,12 @@ const countrySuggestion = page.locator('button.ta-item').filter({
 });
 await countrySuggestion.click();
 await expect(page.getByText(loginmail, { exact: true }).first()).toBeVisible();
-await page.locator('a.action__submit').click();
-console.log("Order placed successfully");
+const ordermessageverification  = page.getByText('Order Placed Successfully', { exact: true });
+
+await Promise.all([
+  expect(ordermessageverification).toBeVisible({ timeout: 5000 }),
+  page.locator('a.action__submit').click(),
+]);
 
 // order confirmation
 await expect(page.locator('.hero-primary')).toHaveText('Thankyou for the order.');
