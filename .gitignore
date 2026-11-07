@@ -1,10 +1,15 @@
-# Playwright
+# Dependencies and generated Playwright run output
 node_modules/
 /test-results/
 /playwright-report/
 /blob-report/
+/playwright-runs/
+
+# Local browser automation and modernization tool output
+/.playwright-mcp/
+/.tsupgrader/
 /playwright/.cache/
 /playwright/.auth/
 
-# Keep the local MCP server configuration private to this workspace.
+# Keep local MCP configuration private to this workspace.
 .vscode/mcp.json

@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+      # Run the suite in four parallel shards.
       matrix:
         shard: [1, 2, 3, 4]
 
@@ -33,6 +34,7 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
+      # Blob reports are merged into one HTML report in the next job.
       - name: Run Playwright tests
         run: npx playwright test --shard=${{ matrix.shard }}/4 --reporter=blob
 
@@ -58,6 +60,7 @@ jobs:
           path: all-blob-reports
           pattern: blob-report-*
           merge-multiple: true
+      # Combine all shard reports into a single browsable report.
       - run: npx playwright merge-reports --reporter=html all-blob-reports
       - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
