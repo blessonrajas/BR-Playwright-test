@@ -1,4 +1,6 @@
 {
+    // Automatically apply available fixes in the Copilot chat agent.
     "github.copilot.chat.agent.autoFix": true,
+    // Enable Copilot chat completions.
     "github.copilot.completions.chat.enabled": true
 }
