@@ -1,14 +1,15 @@
-import { LoginPage } from './Loginpage';
-import { CartPage } from './Cartpage';
-import { CheckoutPage } from './checkoutpage';
-export type { PaymentDetails } from './checkoutpage';
-import { RegisterPage } from './RegisterPage';
-export type { RegistrationDetails } from './RegisterPage';
-import { OrderConfirmationPage } from './Orderconfirmationpage';
-import { OrderHistoryPage } from './OrderHistorypage';
+import { CartPage } from './cart-page';
+import { CheckoutPage } from './checkout-page';
+import { LoginPage } from './login-page';
+import { OrderConfirmationPage } from './order-confirmation-page';
+import { OrderHistoryPage } from './order-history-page';
+import { RegisterPage } from './register-page';
 import type { Page } from '@playwright/test';
 
-export class POManager {
+export type { PaymentDetails } from './checkout-page';
+export type { RegistrationDetails } from './register-page';
+
+export class PageObjectManager {
     private readonly loginPage: LoginPage;
     private readonly cartPage: CartPage;
     private readonly checkoutPage: CheckoutPage;

@@ -1,5 +1,5 @@
 import { expect, test, type Locator } from '@playwright/test';
-import { POManager, type RegistrationDetails } from '../Pages/POManager';
+import { PageObjectManager, type RegistrationDetails } from '../Pages/page-object-manager';
 
 const firstNames = ['Alex', 'Jordan', 'Taylor', 'Morgan', 'Casey'];
 const lastNames = ['Parker', 'Reed', 'Brooks', 'Hayes', 'Morgan'];
@@ -19,8 +19,8 @@ test('Register User page', async ({ page }) => {
     password: 'Stek#12k',
   };
 
-  const poManager = new POManager(page);
-  const registerPage = poManager.getRegisterPage();
+  const pageObjectManager = new PageObjectManager(page);
+  const registerPage = pageObjectManager.getRegisterPage();
 
   await registerPage.openRegistrationForm();
   await registerPage.register(registrationDetails);
