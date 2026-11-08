@@ -1,10 +1,6 @@
 
 import { test } from '@playwright/test';
-import { Loginpage } from '../Pages/Loginpage';
-import { CartPage } from '../Pages/Cartpage';
-import { CheckoutPage, type PaymentDetails } from '../Pages/checkoutpage';
-import { OrderConfirmationPage } from '../Pages/Orderconfirmationpage';
-import { OrderHistoryPage } from '../Pages/OrderHistorypage';
+import { PageObjectManager, type PaymentDetails } from '../Pages/page-object-manager';
 
 
 const loginmail: string = 'loki112233@gmail.com'
@@ -23,31 +19,32 @@ const paymentDetails: PaymentDetails = {
 
 
 test('End to End Test with Framework', async ({ page }) =>{
+const pageObjectManager = new PageObjectManager(page);
 
 // Login to the application
-const loginPage = new Loginpage(page);
+const loginPage = pageObjectManager.getLoginPage();
 await loginPage.goto();
 await loginPage.validLogin(loginmail, loginpassword);
 
 // add to cart
-const cartPage = new CartPage(page);
+const cartPage = pageObjectManager.getCartPage();
 await cartPage.addToCart(productName);
 await cartPage.verifyCart(productName);
 
 // payment screen and checkout
-const checkoutPage = new CheckoutPage(page);
+const checkoutPage = pageObjectManager.getCheckoutPage();
 await checkoutPage.proceedToCheckoutAndFillPaymentDetails(paymentDetails);
 await checkoutPage.submitOrder();
 
 // order confirmation
-const orderConfirmationPage = new OrderConfirmationPage(page);
+const orderConfirmationPage = pageObjectManager.getOrderConfirmationPage();
 const orderID = await orderConfirmationPage.getOrderId(productName);
 console.log('Order ID is: ' + orderID);
 console.log("Order confirmation page is displayed successfully with the product name: " + productName);
 
 
 // order history
-const orderHistoryPage = new OrderHistoryPage(page);
+const orderHistoryPage = pageObjectManager.getOrderHistoryPage();
 await orderHistoryPage.verifyOrderInHistory(productName, orderID);
 console.log("Order history page is displayed successfully with the order ID: " + orderID + " and product name: " + productName);
 
