@@ -1,6 +1,6 @@
 import { Locator, Page } from '@playwright/test';
 
-export class Loginpage {
+export class LoginPage {
     readonly page: Page;
     readonly username: Locator;
     readonly password: Locator;
@@ -26,7 +26,6 @@ export class Loginpage {
         await this.page.waitForLoadState('networkidle');
     }
 }
-
 
 
 
