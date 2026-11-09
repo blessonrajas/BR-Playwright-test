@@ -11,7 +11,7 @@ const APIorderurl: string = 'https://rahulshettyacademy.com/api/ecom/order/creat
 const orderPayload: { orders: { country: string; productOrderedId: string }[]} = {
   orders: [
     {
-      country: 'Australia',
+      country: 'France',
       productOrderedId: '6960ea76c941646b7a8b3dd5',
     },
   ],
